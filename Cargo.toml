@@ -1,0 +1,12 @@
+[package]
+name = "rbaduk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+engine = { path = "./crates/rbaduk-engine" }
+
+[workspace]
+members = [
+    "crates/rbaduk-engine"
+]
