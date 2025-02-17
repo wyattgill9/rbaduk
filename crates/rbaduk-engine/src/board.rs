@@ -8,20 +8,7 @@ impl Board {
     pub fn new() -> Self {
         Board {
             data: {
-                let mut data = vec![0u8; 91];
-                let mut bit_index = 0;
-
-                for _ in 0..=361 {
-                    let value = 2u8;
-                    let byte_index = bit_index / 4;
-                    let bit_pos = (bit_index % 4) * 2;
-
-                    data[byte_index] &= !(0b11 << bit_pos);
-                    data[byte_index] |= value << bit_pos;
-
-                    bit_index += 1;
-                }
-
+                let data = vec![0b00000000; 91];
                 data
             },
         }
@@ -39,3 +26,20 @@ impl Board {
         );
     }
 }
+
+// minipulating
+// let mut data = vec![0u8; 91];
+// let mut bit_index = 0;
+
+// for _ in 0..=361 {
+//     let value = 2u8;
+//     let byte_index = bit_index / 4;
+//     let bit_pos = (bit_index % 4) * 2;
+
+//     data[byte_index] &= !(0b11 << bit_pos);
+//     data[byte_index] |= value << bit_pos;
+
+//     bit_index += 1;
+// }
+
+// data
