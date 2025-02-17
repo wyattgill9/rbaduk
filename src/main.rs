@@ -1,6 +1,14 @@
-use engine::board;
+use engine::{
+    board,
+    board::Stone::{Black, White},
+};
 
 fn main() {
-    let board = board::Board::new();
+    let mut board = board::Board::new();
+
+    board.place_stone((0, 0), Black);
+    board.place_stone((1, 1), White);
+
     board.get_board_mem();
+    println!("{}", board);
 }
