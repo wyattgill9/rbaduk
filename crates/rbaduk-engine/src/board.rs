@@ -27,16 +27,6 @@ impl Board {
         }
     }
 
-    pub fn load_board(&self) {
-        let data = &self.data;
-        for i in 0..=361 {
-            let byte_index = i / 4;
-            let bit_pos = (i % 4) * 2;
-            let value = (data[byte_index] >> bit_pos) & 0b11;
-            println!("Element {}: {}", i, value);
-        }
-    }
-
     pub fn get_board_mem(&self) {
         let data = &self.data;
         println!(
