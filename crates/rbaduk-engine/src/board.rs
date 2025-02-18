@@ -29,7 +29,6 @@ impl Board {
             Stone::Empty => 0b00,
             Stone::Black => 0b01,
             Stone::White => 0b10,
-            _ => panic!("Invalid color"),
         };
 
         // mask to clear the existing 2 bits at the pos
@@ -37,7 +36,7 @@ impl Board {
 
         //clear the existing bits and set new stone value
         self.data[u8_index] &= mask;
-        self.data[u8_index] |= (stone_value << bit_offset);
+        self.data[u8_index] |= stone_value << bit_offset;
     }
 
     pub fn get_board_mem(&self) {

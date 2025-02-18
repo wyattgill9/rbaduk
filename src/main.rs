@@ -9,6 +9,6 @@ fn main() {
     board.place_stone((0, 0), Black);
     board.place_stone((1, 1), White);
 
-    board.get_board_mem();
     println!("{}", board);
+    board.get_board_mem();
 }
