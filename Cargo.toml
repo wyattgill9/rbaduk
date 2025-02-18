@@ -5,8 +5,10 @@ edition = "2021"
 
 [dependencies]
 engine = { path = "./crates/rbaduk-engine" }
+mcts = { path = "./crates/rbaduk-mcts" }
 
 [workspace]
-members = [
+members = [ 
+    "crates/rbaduk-mcts",
     "crates/rbaduk-engine"
 ]

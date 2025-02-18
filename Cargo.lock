@@ -7,8 +7,13 @@ name = "engine"
 version = "0.1.0"
 
 [[package]]
+name = "mcts"
+version = "0.1.0"
+
+[[package]]
 name = "rbaduk"
 version = "0.1.0"
 dependencies = [
  "engine",
+ "mcts",
 ]
