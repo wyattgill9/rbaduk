@@ -26,7 +26,7 @@ pub struct Board {
 
 impl Board {
     pub fn new() -> Self {
-        const EMPTY_FILL: u8 = Stone::Empty as u8 * 0b00000000;
+        const EMPTY_FILL: u8 = Stone::Empty as u8 * 0b01010101 ;
         Self {
             board: vec![EMPTY_FILL; 91],
         }
