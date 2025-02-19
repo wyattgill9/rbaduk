@@ -3,13 +3,21 @@ use engine::{board::Board, board::Stone, eval};
 fn main() {
     let mut board = Board::new();
 
-    eval::apply_move(&mut board, 0, 1, Stone::Black);
-    eval::apply_move(&mut board, 1, 0, Stone::Black);
-    eval::apply_move(&mut board, 1, 2, Stone::Black);
-    eval::apply_move(&mut board, 2, 1, Stone::Black);
     println!("{}", board);
 
-    eval::apply_move(&mut board, 1, 1, Stone::White);
+    loop {
+        let user_input = std::io::stdin().lines().next().unwrap().unwrap();
 
-    println!("{}", board);
+        if user_input == "exit" {
+            break;
+        }
+
+        let (row, col) = user_input.split_once(',').unwrap();
+        let row = row.parse::<usize>().unwrap();
+        let col = col.parse::<usize>().unwrap();
+
+        eval::apply_move(&mut board, row, col, Stone::White);
+
+        println!("{}", board);
+    }
 }
