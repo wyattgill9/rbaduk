@@ -26,7 +26,7 @@ pub struct Board {
 
 impl Board {
     pub fn new() -> Self {
-        const EMPTY_FILL: u8 = Stone::Empty as u8 * 0b01010101 ;
+        const EMPTY_FILL: u8 = Stone::Empty as u8 * 0b01010101;
         Self {
             board: vec![EMPTY_FILL; 91],
         }
@@ -59,7 +59,7 @@ impl Board {
         unsafe { core::mem::transmute(stone_code) }
     }
 
-    pub fn set(&mut self, row: usize, col: usize, stone: Stone) {
+    pub fn place_stones(&mut self, row: usize, col: usize, stone: Stone) {
         if row >= 19 {
             panic!("`row` must be less than 19, but is {row}");
         }
@@ -68,12 +68,12 @@ impl Board {
         }
 
         // SAFETY: Both `row` and `col` are less than 19.
-        unsafe { self.set_unchecked(row, col, stone) }
+        unsafe { self.place_stones_unchecked(row, col, stone) }
     }
 
     /// # Safety
     /// Both `row` and `col` must be less than 19.
-    pub unsafe fn set_unchecked(&mut self, row: usize, col: usize, stone: Stone) {
+    pub unsafe fn place_stones_unchecked(&mut self, row: usize, col: usize, stone: Stone) {
         let bit_index = 2 * (19 * row + col);
         // SAFETY: If both `row` and `col` are less than 19, `bit_index / 8`
         // will be a valid index.
